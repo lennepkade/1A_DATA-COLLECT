@@ -1,5 +1,3 @@
-_Par [Nicolas Karasiak](https://www.karasiak.net) & [David Sheeren](https://dsheeren.github.io)_ 
-
 Un Système d'Information Géographique (SIG) est, comme son nom l'indique, un système d'information dédié à l'usage de données spatiales. Il est aussi bien utilisé pour de la consultation, modification et création de données géographiques, mais aussi pour de l'analyse spatiale. 
 
 Le SIG est l'outil indispensable pour réaliser des cartes. Pour ce faire, deux grands types de données sont utilisés par ces logiciels :  
