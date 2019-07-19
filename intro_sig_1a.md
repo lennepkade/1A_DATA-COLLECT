@@ -207,4 +207,4 @@ Accéder au site [remonterletemps.ign.fr](https://remonterletemps.ign.fr/) et t�
 
 1. Activer le plugin dans le menu `Extension > Installer/Gérer > Activer Géoréférenceur GDAL`
 2. Vous devriez trouver désormais dans le menu `Raster > Géoréférencer`
-3. Suivre la procédure : https://docs.qgis.org/2.8/fr/docs/training_manual/forestry/map_georeferencing.html
+3. Suivre la procédure : [https://docs.qgis.org/2.8/fr/docs/training_manual/forestry/map_georeferencing.html](https://docs.qgis.org/2.8/fr/docs/training_manual/forestry/map_georeferencing.html)
