@@ -1,2 +1,2 @@
-# 1A_DATA-COLLECT
-TD 1A ENSAT : DATA-COLLECT
+# TD ENSAT 1A : DATA-COLLECT
+Cours écrit avec zettlr, utilisé pour la compilation markdown>pdf/html.
