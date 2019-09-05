@@ -60,6 +60,10 @@ Liste indicative des quelques fournisseurs de données :
 
 ## Localiser votre exploitation
 
+*NB : Si vous n'avez pas encore d'exploitation, vous pouvez utiliser l'ENSAT comme lieu d'exploitation*
+
+### Méthode 1 : Via Géoportail de l'IGN
+
 Le géoportail est l'équivalent IGN de Google Maps : [www.geoportail.gouv.fr/](https://www.geoportail.gouv.fr/)
 
 Commencez par rechercher votre exploitation. N'hésitez pas à choisir comme fond de cartes les photographies aériennes. Une fois votre exploitation localisée, cliquez sur la molette à droite de l'écran, puis sur `Annoter la carte`, et choisissez votre système de référence (Lambert 93). Les coordonnées X et Y correspondent à la position du curseur sur la carte.
@@ -70,15 +74,33 @@ Commencez par rechercher votre exploitation. N'hésitez pas à choisir comme fon
 
 Le site Géoportail créera pour vous un fichier de type `kml` qu'il sera possible de charger dans QGIS.
 
-## Ajouter votre exploitation dans QGIS
+### Méthode 2 : En créer un fichier CSV
+
+Cette méthode permet de créer directement depuis un fichier de type tableur (Excel / LibreOffice Calc) un point GPS qu'il sera possible d'importer dans QGis.
+
+Pour obtenir les coordonnées X et Y de votre exploitation, vous pouvez utiliser soit le Géoportail soit Google Maps.
+
+Si vous faites dans Google Maps un clic droit sur l'endroit qui vous intéresse et que vous cliquez sur "Plus d'infos sur cet endroit", vous verrez alors apparaître les coordonnées dans l'ordre Y et X (et non X et Y).
+
+![Obtenir les coordonnées Y et X dans Google Maps](figures/yx_gmaps.png)
+
+Il ne vous reste plus qu'à les enregistrer dans votre tableur (Excel / LibreOffice Calc) en faisant bien attention à ajouter le nom de chaque colonne :
+
+![Ajouter dans un fichier texte les coordonnées](figures/tableur_csv.png)
+
+À noter, les coordonnées fournies par Google Maps utilisent le système de coordonnées géographique EPSG:4326.
+
+Enregistrez maintenant votre fichier au format `csv`.
+
+### Ajouter votre exploitation dans QGIS
 
 Dans QGIS 3, il n'y a plus qu'un bouton pour ouvrir n'importe quel type de couche.
 
 ![Charger une couche dans QGIS](figures/QGIS_charger.png)
 
-Une fois la fenêtre ouverte, sélectionnez l'onglet 'Vecteur' et ajoutez votre fichier obtenu via le géoportail.
+- Si vous avez utilisé la méthode 1, sélectionnez l'onglet `Vecteur` et ajoutez votre fichier obtenu via le géoportail. Une autre méthode consiste à glisser/déposer votre fichier `kml` dans la fenêtre QGIS.
 
-Une autre méthode consiste à glisser/déposer votre fichier `kml` dans la fenêtre QGIS.
+- Si vous avez utilisé la méthode 2, sélectionnez l'onglet `Texte Délimité`  et dans la partie `définition de géométrie` choisissez `point`, remplissez les champs X et Y par le nom de vos colonnes X et Y puis dans SCR de la géométrie sélectionnez l'EPSG:4326.
 
 Une nouvelle couche est ainsi ajoutée à votre carte.  Vous pouvez faire un clic droit sur le nom de la couche dans la fenêtre `Couches` et regarder ses propriétés. Dans `Information` vous verrez que la projection est de type `EPSG:4326`.
 
@@ -90,7 +112,7 @@ Enregistrez votre nouvelle couche sous un format de type geopackage. Une fois en
 
 ## Ajouter le nom de votre exploitation
 
-Pour afficher sur la carte le nom de votre exploitation, il va falloir modifier votre fichier vectoriel.
+Si vous n'avez pas le nom de votre exploitation dans votre fichier vectoriel, il va falloir le modifier.
 
 Faites un clic droit sur la couche qui contient votre exploitation et faites `Ouvrir la table d'attributs`. Par défaut vous ne pouvez pas modifier le contenu des champs. Pour cela, il faut d'abord cliquer sur le petit crayon en haut à gauche de la fenêtre, puis vous pouvez ajouter le nom de votre exploitation dans la colonne `Name`.
 
