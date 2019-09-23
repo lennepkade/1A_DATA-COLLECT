@@ -1,9 +1,15 @@
+# TD : Introduction aux SIG avec QGIS
+
+[TOC]
+
+## Introduction
+
 Un Système d'Information Géographique (SIG) est, comme son nom l'indique, un système d'information dédié à l'usage de données spatiales. Il est aussi bien utilisé pour de la consultation, modification et création de données géographiques, mais aussi pour de l'analyse spatiale. 
 
 Le SIG est l'outil indispensable pour réaliser des cartes. Pour ce faire, deux grands types de données sont utilisés par ces logiciels :  
 
-- vecteur (polygones, points et lignes)
-- raster (images)
+- **vecteur** (polygones, points et lignes)
+- **raster** (images)
 
 ![Différence entre vecteur (à gauche) et raster (à droite)](figures/icon_vector-raster.jpg)
 
@@ -15,7 +21,9 @@ Ces données ont obligatoirement :
 L'objectif de ce cours est de prendre en main un SIG comme QGIS. Pour ce faire, nous allons utiliser des données de différents types (point comme le siège de votre exploitation agricole, polygone comme une parcelle agricole).
 Il s'agit de se familiariser avec un tel outil en adoptant les bonnes pratiques du domaine.
 
-# Créer un nouveau projet
+
+
+# Créer un nouveau projet QGIS
 
 Quand vous lancez QGIS, commencez par créer un nouveau projet : 
 `Projet > Nouveau`.
@@ -44,6 +52,8 @@ Une fois ces manipulations effectuées, vous pouvez sauvegarder votre projet dan
 `Projet > Enregistrer sous...`
 
 
+
+
 # Charger des données
 
 L'Institut Géographique National (IGN) est le plus grand producteur français de données spatiales. Il fournit notamment les limites administratives (communes, départements, régions), les fleuves, mais aussi des données comme le Registre Parcellaire Graphique (RPG) qui sert de référence pour l'attribution des aides de la politique agricole commune (PAC).
@@ -60,7 +70,9 @@ Liste indicative des quelques fournisseurs de données :
 
 ## Localiser votre exploitation
 
-*NB : Si vous n'avez pas encore d'exploitation, vous pouvez utiliser l'ENSAT comme lieu d'exploitation*
+*NB : Si vous n'avez pas encore d'exploitation, vous pouvez utiliser l'exploitation de Borret qui se situe au sud de Poucharramet. Il vous suffit de taper sur Google Maps ou IGN Géoportail : '1 chemin de Borret, Poucharramet'*
+
+![Exploitation Borret](/mnt/DATA/Cours/1A/1A_DATA-COLLECT/figures/boret.png)
 
 ### Méthode 1 : Via Géoportail de l'IGN
 
@@ -82,7 +94,7 @@ Pour obtenir les coordonnées X et Y de votre exploitation, vous pouvez utiliser
 
 Si vous faites dans Google Maps un clic droit sur l'endroit qui vous intéresse et que vous cliquez sur "Plus d'infos sur cet endroit", vous verrez alors apparaître les coordonnées dans l'ordre Y et X (et non X et Y).
 
-![Obtenir les coordonnées Y et X dans Google Maps](figures/yx_gmaps.png)
+![Obtenir les coordonnées Y et X dans Google Maps](figures/chemin_borret_gmaps.png)
 
 Il ne vous reste plus qu'à les enregistrer dans votre tableur (Excel / LibreOffice Calc) en faisant bien attention à ajouter le nom de chaque colonne :
 
@@ -134,34 +146,6 @@ Cliquer sur `Symbole Simple` et changer à `Symbole SVG`. De nombreux symboles s
 
 ![Exploitation avec étiquette et icône SVG](figures/QGIS_labelicon.png)
 
-
-<!-- Partie supprimée car trop lourde (~700mo que pour l'Occitanie, on numérisera les parcelles à la mano!)
-# Télécharger une donnée spatiale
-
-Objectif : **Télécharger la carte géologique** et la faire apparaître avec vos parcelles dans QGIS.
-
-
-#### RPG 2017 (IGN)
-
-Le flux WMS de l'IGN nécessite une clé personnelle, ce qui signifie que vous devez avoir un compte IGN afin de consulter le fond de carte depuis QGIS.      
-Cependant, pour télécharger les données au format vecteur, aucune identification n'est nécessaire.
-
-Rendez-vous sur la page du RPG pour télécharger celui de votre région : [http://professionnels.ign.fr/rpg](http://professionnels.ign.fr/rpg).
-- Pour l'Occitanie : ftp://RPG_ext:quoojaicaiqu6ahD@ftp3.ign.fr/RPG_2-0__SHP_LAMB93_R76-2017_2017-01-01.7z.001.
-
-Dézippez le fichier téléchargé dans votre dossier de travail, et glissez/déposez le fichier de type _.shp_ dans l'interface QGIS.
-
-
-## Gérer l'affichage et la symbologie
-
-La symbologie est le fait de représenter les données par des symboles. Par exemple, afin de différencier les différentes couches géologiques, vous allez
-Afin de mieux comprendre
-Mettre 
-clic droit
-Propriété
-Symbologie
--->
-
 # Visualiser des données distantes
 
 Les données distantes sont disponibles la plupart du temps en plusieurs formats : WMS (Web Map Service, retourne une image qui peut être composée à partir de plusieurs sources), WFS (Web Feature Service, retourne les données vecteur) ou plus rare le WCS (Web Coverage Service, données raster).
@@ -197,9 +181,9 @@ Dans le panneau explorateur sur la gauche de QGIS, vous aurez désormais accès 
 
 # Créer un vecteur
 
-**Objectif : Dessiner votre parcelle**.
+**Objectif : Dessiner les parcelles**.
 
-Vérifier que dans le menu `Vue > Barre d'outils` que les deux `Barre d'outils de numérisation` et `Barre d'outils de numérisation avancée` soient cochées.
+Vérifier que dans le menu `Vue > Barre d'outils` que les deux `Barre d'outils de numérisation`, `Barre d'outils de numérisation avancée` et `accrochage` soient cochées.
 
 Ensuite :
 - Créer un fichier vectoriel de type polygone (au format geopackage)
@@ -214,6 +198,18 @@ Ensuite :
 À chaque clic gauche un nouveau point de votre polygone est ajouté. Pour terminer votre polygone il suffit de faire un clic droit.
 
 Pour se déplacer pendant la vectorisation, vous pouvez soit dézoomer (avec la molette de la souris) soit changer d'endroit en maintenant la touche espace tout en déplaçant votre curseur.
+
+
+
+## S'appuyer (s'accrocher) sur les polygones déjà créés
+
+L'outil accrochage est indispensable quand on fait de la numérisation. Si vous ne l'avez pas activé, il rsique de vous manquer car cet outil permet de s'appuyer sur les polygones déjà créés et agit comme une sorte d'aimant. Si le nouveau point que vous voulez créer est très proche d'un angle d'une parcelle existante, alors l'outil accrochage va comprendre qu'il s'agit du même point.
+
+Afin d'activer la barre d'outils et voir l'icône aimant dans votre fenêtre Qgis, cocher : `Vue > Barre d'outils > Accrochage`
+
+![Outil accrochage de QGIS](/mnt/DATA/Cours/1A/1A_DATA-COLLECT/figures/accrochage.png)
+
+
 
 # Géoréférencer une image
 
