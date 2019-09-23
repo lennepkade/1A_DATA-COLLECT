@@ -72,7 +72,7 @@ Liste indicative des quelques fournisseurs de données :
 
 *NB : Si vous n'avez pas encore d'exploitation, vous pouvez utiliser l'exploitation de Borret qui se situe au sud de Poucharramet. Il vous suffit de taper sur Google Maps ou IGN Géoportail : '1 chemin de Borret, Poucharramet'*
 
-![Exploitation Borret](/mnt/DATA/Cours/1A/1A_DATA-COLLECT/figures/boret.png)
+![Exploitation Borret](figures/boret.png)
 
 ### Méthode 1 : Via Géoportail de l'IGN
 
@@ -207,7 +207,7 @@ L'outil accrochage est indispensable quand on fait de la numérisation. Si vous 
 
 Afin d'activer la barre d'outils et voir l'icône aimant dans votre fenêtre Qgis, cocher : `Vue > Barre d'outils > Accrochage`
 
-![Outil accrochage de QGIS](/mnt/DATA/Cours/1A/1A_DATA-COLLECT/figures/accrochage.png)
+![Outil accrochage de QGIS](figures/accrochage.png)
 
 
 
