@@ -28,7 +28,7 @@ Par défaut votre projet utilise la projection UTM (Transverse Universelle de Me
 
 Dans QGIS, la projection du projet est toujours affichée en bas à droite de la fenêtre de QGIS, vous pouvez donc vérifier votre projection : 
 
-![SRC actuel dans QGIS : EPSG:4326](figures/EPSG4326.png)
+![SCR actuel dans QGIS : EPSG:4326](figures/EPSG4326.png)
 
 Pour regarder les propriétés de votre projet : `Projet > Propriétés`.
 
@@ -37,7 +37,7 @@ Si vous voulez en savoir plus sur cette projection, une page Wikipedia est dédi
 
 Une fois la projection Lambert-93 EPSG:2154 validée, vous pouvez à nouveau vérifier en bas à droite de la fenêtre de QGIS :
 
-![SRC actuel dans QGIS : EPSG:2154](figures/EPSG2154.png)
+![SCR actuel dans QGIS : EPSG:2154](figures/EPSG2154.png)
 
 Dans l'onglet `Général`, pensez à donner un nom à votre projet, il apparaîtra à côté du nom de la fenêtre QGIS.
 
@@ -112,7 +112,7 @@ Dans QGIS 3, il n'y a plus qu'un bouton pour ouvrir n'importe quel type de couch
 
 Une nouvelle couche est ainsi ajoutée à votre carte.  Vous pouvez faire un clic droit sur le nom de la couche dans la fenêtre `Couches` et regarder ses propriétés. Dans `Information` vous verrez que la projection est de type `EPSG:4326`.
 
-Pour changer cela, allez dans la Boîte à outils de traitements en bas à gauche de QGIS (si la boîte n'est pas ouverte, cliquez sur `Traitement>Boîte à outils`), et recherchez l'algorithme `Reprojeter une couche`. Le SRC cible devra être `EPSG:2154` comme celui de votre projet.
+Pour changer cela, allez dans la Boîte à outils de traitements en bas à gauche de QGIS (si la boîte n'est pas ouverte, cliquez sur `Traitement>Boîte à outils`), et recherchez l'algorithme `Reprojeter une couche`. Le SCR cible devra être `EPSG:2154` comme celui de votre projet.
 
 ![Enregistrez votre nouvelle couche au format gpkg](figures/QGIS_gpkg.png){height=100px}
 
