@@ -129,7 +129,7 @@ Une fois le nom ajouté, pensez à recliquer sur le petit crayon pour terminer l
 ## Modifier l'affichage de votre exploitation
 ### Afficher le nom
 
-**Objectif : Faire afficher le nom de l'exploitation sur la carte.**
+**Objectif : Faire apparaître le nom de l'exploitation sur la carte.**
 Faites un clic droit sur la couche, puis `Propriétés` puis dans l'onglet `Étiquettes` choisissez Étiqueter avec le champ `Name`. Le nom de l'exploitation doit désormais apparaître sur la carte.
 
 ### Changer le type d'icône
