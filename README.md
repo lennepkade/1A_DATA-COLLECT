@@ -17,8 +17,6 @@ Ces données ont obligatoirement :
 L'objectif de ce cours est de prendre en main un SIG comme QGIS. Pour ce faire, nous allons utiliser des données de différents types (point comme le siège de votre exploitation agricole, polygone comme une parcelle agricole).
 Il s'agit de se familiariser avec un tel outil en adoptant les bonnes pratiques du domaine.
 
-
-
 # Créer un nouveau projet QGIS
 
 Quand vous lancez QGIS, commencez par créer un nouveau projet : 
@@ -52,7 +50,9 @@ Une fois ces manipulations effectuées, vous pouvez sauvegarder votre projet dan
 
 # Charger des données
 
+
 L'Institut Géographique National (IGN) est le plus grand producteur français de données spatiales. Il fournit notamment les limites administratives (communes, départements, régions), les fleuves, mais aussi des données comme le Registre Parcellaire Graphique (RPG) qui sert de référence pour l'attribution des aides de la politique agricole commune (PAC).
+
 
 Liste indicative des quelques fournisseurs de données :
 
@@ -66,7 +66,7 @@ Liste indicative des quelques fournisseurs de données :
 
 ## Localiser votre exploitation
 
-*NB : Si vous n'avez pas encore d'exploitation, vous pouvez utiliser l'exploitation de Borret qui se situe au sud de Poucharramet. Il vous suffit de taper sur Google Maps ou IGN Géoportail : '1 chemin de Borret, Poucharramet'*
+*NB : Si vous n'avez pas encore d'exploitation, vous pouvez utiliser l'exploitation de Borret qui se situe au sud de Poucharramet. Il vous suffit de taper sur Google Maps ou IGN Géoportail l'adresse suivante : '1 chemin de Borret, Poucharramet'*
 
 ![Exploitation Borret](figures/boret.png)
 
@@ -76,9 +76,9 @@ Le géoportail est l'équivalent IGN de Google Maps : [www.geoportail.gouv.fr/](
 
 Commencez par rechercher votre exploitation. N'hésitez pas à choisir comme fond de cartes les photographies aériennes. Une fois votre exploitation localisée, cliquez sur la molette à droite de l'écran, puis sur `Annoter la carte`, et choisissez votre système de référence (Lambert 93). Les coordonnées X et Y correspondent à la position du curseur sur la carte.
 
-![Annoter la carte pour créer un point votre exploitation](figures/geoportail_annoter.png)
+![Annoter la carte pour créer un point votre exploitation](figures/geoportail_annoter.png){height=150px}
 
-![Placez votre point et exportez le résultat](figures/geoportail_ajoutpoint.png)
+![Placez votre point et exportez le résultat](figures/geoportail_ajoutpoint.png){height=150px}
 
 Le site Géoportail créera pour vous un fichier de type `kml` qu'il sera possible de charger dans QGIS.
 
@@ -90,11 +90,11 @@ Pour obtenir les coordonnées X et Y de votre exploitation, vous pouvez utiliser
 
 Si vous faites dans Google Maps un clic droit sur l'endroit qui vous intéresse et que vous cliquez sur "Plus d'infos sur cet endroit", vous verrez alors apparaître les coordonnées dans l'ordre Y et X (et non X et Y).
 
-![Obtenir les coordonnées Y et X dans Google Maps](figures/chemin_borret_gmaps.png)
+![Obtenir les coordonnées Y et X dans Google Maps](figures/chemin_borret_gmaps.png){height=50px}
 
 Il ne vous reste plus qu'à les enregistrer dans votre tableur (Excel / LibreOffice Calc) en faisant bien attention à ajouter le nom de chaque colonne :
 
-![Ajouter dans un fichier texte les coordonnées](figures/tableur_csv.png)
+![Ajouter dans un fichier texte les coordonnées](figures/tableur_csv.png){height=50px}
 
 À noter, les coordonnées fournies par Google Maps utilisent le système de coordonnées géographique EPSG:4326.
 
@@ -104,7 +104,7 @@ Enregistrez maintenant votre fichier au format `csv`.
 
 Dans QGIS 3, il n'y a plus qu'un bouton pour ouvrir n'importe quel type de couche.
 
-![Charger une couche dans QGIS](figures/QGIS_charger.png)
+![Charger une couche dans QGIS](figures/QGIS_charger.png){height=150px}
 
 - Si vous avez utilisé la méthode 1, sélectionnez l'onglet `Vecteur` et ajoutez votre fichier obtenu via le géoportail. Une autre méthode consiste à glisser/déposer votre fichier `kml` dans la fenêtre QGIS.
 
@@ -114,7 +114,7 @@ Une nouvelle couche est ainsi ajoutée à votre carte.  Vous pouvez faire un cli
 
 Pour changer cela, allez dans la Boîte à outils de traitements en bas à gauche de QGIS (si la boîte n'est pas ouverte, cliquez sur `Traitement>Boîte à outils`), et recherchez l'algorithme `Reprojeter une couche`. Le SRC cible devra être `EPSG:2154` comme celui de votre projet.
 
-![Enregistre votre nouvelle couche au format gpkg](figures/QGIS_gpkg.png)
+![Enregistrez votre nouvelle couche au format gpkg](figures/QGIS_gpkg.png){height=100px}
 
 Enregistrez votre nouvelle couche sous un format de type geopackage. Une fois enregistrée, votre nouveau fichier sera chargé automatiquement dans QGIS. Vous pouvez supprimer de la liste des couches l'ancien fichier.
 
@@ -185,16 +185,19 @@ Ensuite :
 - Créer un fichier vectoriel de type polygone (au format geopackage)
     - Menu `Couche > Créer une couche > Nouvelle couche GeoPackage`
     - Choisissez bien le type de géométrie `polygone` et la projection `EPSG:2154`.
+- Ajouter un champ de type `Nombre entier` et nommez-le `numparcelle`.
 - Ajouter un champ de type `Donnée texte` et nommez-le `description`.
+- Ajouter un champ de type `Donnée texte` et nommez-le `assolement`.
 - Une fois la couche créée, cliquez sur le petit crayon en haut à gauche dans le menu pour commencer à dessiner votre parcelle.
 - Il suffira ensuite d'ajouter une entité polygonale et de dessiner la parcelle.
 
-![Créer une entité polygonale](figures/QGIS_vectorpoly.png)
+![Créer une entité polygonale](figures/QGIS_vectorpoly.png)	
 
 À chaque clic gauche un nouveau point de votre polygone est ajouté. Pour terminer votre polygone il suffit de faire un clic droit.
 
 Pour se déplacer pendant la vectorisation, vous pouvez soit dézoomer (avec la molette de la souris) soit changer d'endroit en maintenant la touche espace tout en déplaçant votre curseur.
 
+Vous pouvez alors numériser l'ensemble des parcelles de l'exploitation de Borret. Veuillez à saisir dans la description le type de la parcelle.
 
 
 ## S'appuyer (s'accrocher) sur les polygones déjà créés
