@@ -74,7 +74,7 @@ Liste indicative des quelques fournisseurs de données :
 
 Le géoportail est l'équivalent IGN de Google Maps : [www.geoportail.gouv.fr/](https://www.geoportail.gouv.fr/)
 
-Commencez par rechercher votre exploitation. N'hésitez pas à choisir comme fond de cartes les photographies aériennes. Une fois votre exploitation localisée, cliquez sur la molette à droite de l'écran, puis sur `Annoter la carte`, et choisissez votre système de référence (Lambert 93). Les coordonnées X et Y correspondent à la position du curseur sur la carte.
+Commencez par rechercher votre exploitation. N'hésitez pas à choisir comme fond de cartes les photographies aériennes. Une fois votre exploitation localisée, cliquez sur la molette à droite de l'écran, puis sur `Annoter la carte` et placez votre point.
 
 ![Annoter la carte pour créer un point votre exploitation](figures/geoportail_annoter.png){height=150px}
 
@@ -182,6 +182,7 @@ Dans le panneau explorateur sur la gauche de QGIS, vous aurez désormais accès 
 Vérifier que dans le menu `Vue > Barre d'outils` que les deux `Barre d'outils de numérisation`, `Barre d'outils de numérisation avancée` et `accrochage` soient cochées.
 
 Ensuite :
+
 - Créer un fichier vectoriel de type polygone (au format geopackage)
     - Menu `Couche > Créer une couche > Nouvelle couche GeoPackage`
     - Choisissez bien le type de géométrie `polygone` et la projection `EPSG:2154`.
